@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the stanford help feature.
+ */
+
+include_once 'stanford_help.features.inc';
