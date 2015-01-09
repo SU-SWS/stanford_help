@@ -1,4 +1,4 @@
-name = stanford help
+name = Stanford Help
 description = Help page content type
 core = 7.x
 package = Stanford
