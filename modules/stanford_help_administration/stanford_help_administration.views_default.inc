@@ -45,8 +45,6 @@ function stanford_help_administration_views_default_views() {
     'timestamp' => 'title',
     'changed' => 'changed',
     'status' => 'status',
-    'field_s_news_date' => 'field_s_news_date',
-    'field_s_news_source' => 'field_s_news_source',
     'term_node_tid' => 'term_node_tid',
     'nid' => 'nid',
     'edit_node' => 'edit_node',
@@ -87,20 +85,6 @@ function stanford_help_administration_views_default_views() {
       'empty_column' => 0,
     ),
     'status' => array(
-      'sortable' => 1,
-      'default_sort_order' => 'desc',
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-    'field_s_news_date' => array(
-      'sortable' => 0,
-      'default_sort_order' => 'asc',
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-    'field_s_news_source' => array(
       'sortable' => 1,
       'default_sort_order' => 'desc',
       'align' => '',
@@ -210,19 +194,6 @@ function stanford_help_administration_views_default_views() {
       'skip_confirmation' => 1,
       'override_label' => 1,
       'label' => 'Unstick',
-      'postpone_processing' => 0,
-    ),
-    'action::views_bulk_operations_modify_action' => array(
-      'selected' => 1,
-      'skip_confirmation' => 0,
-      'override_label' => 1,
-      'label' => 'Modify News Categories',
-      'settings' => array(
-        'show_all_tokens' => 0,
-        'display_values' => array(
-          'stanford_news_item::field_s_news_categories' => 'stanford_news_item::field_s_news_categories',
-        ),
-      ),
       'postpone_processing' => 0,
     ),
     'action::views_bulk_operations_argument_selector_action' => array(
@@ -426,7 +397,6 @@ function stanford_help_administration_views_default_views() {
     t('Delete'),
     t('Stick'),
     t('Unstick'),
-    t('Modify News Categories'),
     t('Promote to front page'),
     t('Publish'),
     t('Demote from front page'),
