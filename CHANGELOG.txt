@@ -1,0 +1,7 @@
+Stanford Help x.x-x.x, xxxx-xx-xx
+---------------------------------
+
+Stanford Help 7.x-1.0, 2016-06-08
+---------------------------------
+ - Initial release
+
