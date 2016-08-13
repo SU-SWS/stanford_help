@@ -16,7 +16,7 @@ function stanford_help_get_settings() {
     'site_specific_help_title' => t('See site specific help'),
     'site_specific_help_url' => 'site-help',
   );
-  $settings = variable_get('stanford_help_get_settings', $default_settings );
+  $settings = variable_get('stanford_help_settings', $default_settings );
 
   return $settings;
 }

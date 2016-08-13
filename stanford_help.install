@@ -1,0 +1,57 @@
+<?php
+/**
+ * Install tasks.
+ */
+
+/**
+ * Implements hook_enable().
+ */
+function stanford_help_enable() {
+
+  // Set up content access permissions for roles if they exist.
+  // Get role IDs.
+  $roles = array('site owner', 'editor');
+  $caspp = array();
+  $rids = array();
+  foreach ($roles as $role_name) {
+    $role = user_role_load_by_name($role_name);
+    if ($role->rid) {
+      $rids[] = $role->rid;
+    }
+  }
+  if ($admin_role = user_role_load_by_name('administrator')) {
+    $rids[] = $admin_role->rid;
+  }
+
+  // Set the variable for Content Access.
+  $current = variable_get('content_access_stanford_help', array());
+  $caspp = array('view_own' => $rids, 'view' => $rids);
+  $merged = array_merge_recursive_ex($current, $caspp);
+  variable_set('content_access_stanford_help', $merged);
+
+  node_access_rebuild();
+}
+
+function array_merge_recursive_ex(array & $array1, array & $array2) {
+  $merged = $array1;
+  foreach ($array2 as $key => & $value) {
+    if (is_array($value) && isset($merged[$key]) && is_array($merged[$key])) {
+      $merged[$key] = array_merge_recursive_ex($merged[$key], $value);
+    } elseif (is_numeric($key)) {
+      if (!in_array($value, $merged)) {
+        $merged[] = $value;
+      }
+    } else {
+      $merged[$key] = $value;
+    }
+  }
+  return $merged;
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function stanford_help_uninstall() {
+  variable_del('stanford_help_settings');
+  variable_set('content_access_stanford_help', array());
+}
