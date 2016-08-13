@@ -106,7 +106,7 @@ function stanford_site_specific_help_block_view()
       '#type' => 'markup',
       '#markup' => l($settings['site_specific_help_title'],
         $settings['site_specific_help_url'],
-        array('attributes' => array('class' => 'btn'))),
+        array('attributes' => array('class' => 'btn btn-request'))),
     ),
   );
   return $block;
