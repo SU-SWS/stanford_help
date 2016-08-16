@@ -8,6 +8,10 @@
  */
 function stanford_help_enable() {
 
+  // Initialize settings
+  $settings = stanford_help_get_settings();
+  variable_set('stanford_stanford_help_settings', $settings);
+
   // Set up content access permissions for roles if they exist.
   // Get role IDs.
   $roles = array('site owner', 'editor');
@@ -32,11 +36,11 @@ function stanford_help_enable() {
   node_access_rebuild();
 }
 
-function array_merge_recursive_ex(array & $array1, array & $array2) {
+function _stanford_help_array_merge_recursive_ex(array & $array1, array & $array2) {
   $merged = $array1;
   foreach ($array2 as $key => & $value) {
     if (is_array($value) && isset($merged[$key]) && is_array($merged[$key])) {
-      $merged[$key] = array_merge_recursive_ex($merged[$key], $value);
+      $merged[$key] = _stanford_help_array_merge_recursive_ex($merged[$key], $value);
     } elseif (is_numeric($key)) {
       if (!in_array($value, $merged)) {
         $merged[] = $value;

@@ -8,6 +8,19 @@ include_once 'stanford_help.features.inc';
 
 
 /**
+ * Implements hook_help().
+ */
+function stanford_help_help($path, $arg) {
+
+  if ($path == 'admin/help#stanford_help') {
+    $output = '<h3>' . t('About the Stanford Help module') . '</h3>';
+    $output .= '<p>' . t('The Stanford Help module provides protected pages for capturing site specific help such as development and maintenance information.') . '</p>';
+    $output .= l(t("See README.md"), drupal_get_path('module', 'stanford_help') . '/README.md');
+    return $output;
+  }
+}
+
+/**
  * Default settings wrapper for variable_get
  * @return [type] [description]
  */
