@@ -5,6 +5,13 @@
 
 /**
  * Implements hook_enable().
+ *
+ * This initializes two database variables:
+ *  - settings for this module: stanford_stanford_help_settings
+ *  - configuration for content access: content_access_stanford_help
+ *
+ * For content access configuration, this gives access to view help pages for
+ * 'administrator', 'site owner', and 'editor' roles
  */
 function stanford_help_enable() {
 
@@ -36,16 +43,30 @@ function stanford_help_enable() {
   node_access_rebuild();
 }
 
+/**
+ * Merges array2 into array1
+ *
+ * @param array $array1
+ *   The array to be merged into
+ * @param array $array2
+ *   The array to be merged into array1
+ * @return array
+ *   The merged array
+ *
+ *
+ */
 function _stanford_help_array_merge_recursive_ex(array & $array1, array & $array2) {
   $merged = $array1;
-  foreach ($array2 as $key => & $value) {
+  foreach ($array2 as $key => &$value) {
     if (is_array($value) && isset($merged[$key]) && is_array($merged[$key])) {
       $merged[$key] = _stanford_help_array_merge_recursive_ex($merged[$key], $value);
-    } elseif (is_numeric($key)) {
+    }
+    elseif (is_numeric($key)) {
       if (!in_array($value, $merged)) {
         $merged[] = $value;
       }
-    } else {
+    }
+    else {
       $merged[$key] = $value;
     }
   }

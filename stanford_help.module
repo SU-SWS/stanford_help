@@ -22,7 +22,8 @@ function stanford_help_help($path, $arg) {
 
 /**
  * Default settings wrapper for variable_get
- * @return [type] [description]
+ * @return array
+ *   Persistent settings for this module.
  */
 function stanford_help_get_settings() {
   $default_settings = array(
@@ -33,7 +34,6 @@ function stanford_help_get_settings() {
 
   return $settings;
 }
-
 
 /**
  * Implements hook_block_info().
@@ -46,10 +46,11 @@ function stanford_help_block_info() {
 
   return $blocks;
 }
+
 /**
  * Implements hook_block_configure().
  */
-function stanford_help_block_configure($delta='') {
+function stanford_help_block_configure($delta = '') {
   $form = array();
 
   switch($delta) {
@@ -98,7 +99,7 @@ function stanford_help_block_save($delta = '', $edit = array()) {
 /**
  * Implements hook_block_view().
  */
-function stanford_help_block_view($delta='') {
+function stanford_help_block_view($delta = '') {
   $block = array();
 
   switch($delta) {
@@ -110,8 +111,12 @@ function stanford_help_block_view($delta='') {
   return $block;
 }
 
-function stanford_site_specific_help_block_view()
-{
+/**
+ * Defines fields for the Site Specific Help block
+ * 
+ * @return array
+ */
+function stanford_site_specific_help_block_view() {
   $block = array();
   $settings = stanford_help_get_settings();
   $block = array(
