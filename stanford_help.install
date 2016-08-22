@@ -37,7 +37,7 @@ function stanford_help_enable() {
   // Set the variable for Content Access.
   $current = variable_get('content_access_stanford_help', array());
   $caspp = array('view_own' => $rids, 'view' => $rids);
-  $merged = array_merge_recursive_ex($current, $caspp);
+  $merged = _stanford_help_array_merge_recursive_ex($current, $caspp);
   variable_set('content_access_stanford_help', $merged);
 
   node_access_rebuild();
