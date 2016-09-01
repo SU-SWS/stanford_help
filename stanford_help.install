@@ -7,7 +7,7 @@
  * Implements hook_enable().
  *
  * This initializes two database variables:
- *  - settings for this module: stanford_stanford_help_settings
+ *  - settings for this module: stanford_help_settings
  *  - configuration for content access: content_access_stanford_help
  *
  * For content access configuration, this gives access to view help pages for
@@ -17,7 +17,7 @@ function stanford_help_enable() {
 
   // Initialize settings
   $settings = stanford_help_get_settings();
-  variable_set('stanford_stanford_help_settings', $settings);
+  variable_set('stanford_help_settings', $settings);
 
   // Set up content access permissions for roles if they exist.
   // Get role IDs.
@@ -38,8 +38,7 @@ function stanford_help_enable() {
   $current = variable_get('content_access_stanford_help', array());
   $caspp = array('view_own' => $rids, 'view' => $rids);
   $merged = _stanford_help_array_merge_recursive_ex($current, $caspp);
-  variable_set('content_access_stanford_help', $merged);
-
+  variable_set('content_access_stanford_help_page', $merged);
   node_access_rebuild();
 }
 
@@ -78,5 +77,5 @@ function _stanford_help_array_merge_recursive_ex(array & $array1, array & $array
  */
 function stanford_help_uninstall() {
   variable_del('stanford_help_settings');
-  variable_set('content_access_stanford_help', array());
+  variable_set('content_access_stanford_help_page', array());
 }
