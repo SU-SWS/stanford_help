@@ -1,5 +1,5 @@
 #Stanford Help
-#### Version 7.x-1.1
+#### Version 7.x-1.1-dev
 
 Maintainers: [cjwest](https://github.com/cjwest), [boznik](https://github.com/boznik)
 [Changelog.txt](CHANGELOG.txt)
