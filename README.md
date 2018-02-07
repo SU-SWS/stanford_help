@@ -1,4 +1,4 @@
-#Stanford Help
+# Stanford Help
 #### Version 7.x-1.1-dev
 
 Maintainers: [cjwest](https://github.com/cjwest), [boznik](https://github.com/boznik)
@@ -11,7 +11,7 @@ After installing and enabling the Stanford Help feature, install and enable the 
 
 **Current implementation of Stanford Help is intended to be a singular page with access limited by content-access.**
 
-###Steps to install:
+### Steps to install:
 Unless the site help is installed with the product, an administrator will need to configure the help section.
 
 1. Install / Enable stanford_help module.
@@ -30,7 +30,7 @@ https://<site url>/site-help`
 |View Stanford Help page|YES|YES|YES|NO|
 |Delete Stanford Help page|YES|NO|NO|NO|
 
-###Create Help block on Get Help page
+### Create Help block on Get Help page
 
 1. Create a stanford_postcard block named `Jumpstart Site Specific Help Link`
 2. In the block add the text:
