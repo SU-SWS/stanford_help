@@ -16,8 +16,9 @@ Unless the site help is installed with the product, an administrator will need t
 
 1. Install / Enable stanford_help module.
 2. Create new Help page. For consistency it is recommended to create the page with the following path: `https://<site url>/site-help`
-3. Set permissions to Stanford Help content type. *See table below*.
-4. Add a block to the top of the `admin/stanford-jumpstart` page with the following content:
+3. Verify that the _Content Access_ module is enabled
+4. Set permissions to Stanford Help content type. *See table below*.
+5. Add a block to the top of the `admin/stanford-jumpstart` page with the following content:
 `Documentation specific to your site can be found at the following URL:
 https://<site url>/site-help`
 
